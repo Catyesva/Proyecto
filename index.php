@@ -67,6 +67,7 @@ $mensajeros = (json_decode($menj->listarMensajero()));
 											<select name="mensajero" id="mensajero"
 												class="form-control select2 select2-hidden-accessible"
 												placeholder="Seleccione el mensajero">
+												<option value="">seleccione</option>
 												<?php foreach ($mensajeros as $mensajero) {echo "<option value='".$mensajero->id."'>".$mensajero->name."</option>";}?>
 											</select>
 										</div>
@@ -130,7 +131,8 @@ $mensajeros = (json_decode($menj->listarMensajero()));
 			return;
 		}
 		ruta+='&idmensajero='+idmensajero;		
-		envio_ajax(ruta)
+		envio_ajax(ruta);
+		limpiardata();
 	}
 
 	function envio_ajax(ruta){
@@ -173,9 +175,13 @@ $mensajeros = (json_decode($menj->listarMensajero()));
 	}
 
 	function limpiardata(){
-		var ruta = 'guiasmensajeros.php?op=3'
-		envio_ajax(ruta)
+		document.getElementById('mensajero'). value = "";
+		document.getElementById('idguia'). value = "";
 	}
 
+	function limpiarCampos(){
+		document.getElementById(id). value = null;
+
+	}
 </script>
 </html>
