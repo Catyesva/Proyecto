@@ -1,6 +1,5 @@
 <?php 
-error_reporting(E_ALL); 
-ini_set("display_errors", 1); 
+ 
 session_start();
 include("mensajeros.php");
 
@@ -24,12 +23,11 @@ $mensajeros = (json_decode($menj->listarMensajero()));
 
 <body class="hold-transition layout-top-nav">
 	<div class="wrapper">
-
 		<nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
 			<div class="container">
 				<a href="#" class="navbar-brand">
 					<img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"	style="opacity: .8">
-					<span class="brand-text font-weight-light">Asignación mensajeros</span>
+					<span class="brand-text font-weight-light">Asignar Envíos</span>
 				</a>
 			</div>
 		</nav>
@@ -67,7 +65,7 @@ $mensajeros = (json_decode($menj->listarMensajero()));
 											<select name="mensajero" id="mensajero"
 												class="form-control select2 select2-hidden-accessible"
 												placeholder="Seleccione el mensajero">
-												<option value="">seleccione</option>
+												<option value="">Seleccione el Mensajero</option>
 												<?php foreach ($mensajeros as $mensajero) {echo "<option value='".$mensajero->id."'>".$mensajero->name."</option>";}?>
 											</select>
 										</div>
@@ -179,9 +177,5 @@ $mensajeros = (json_decode($menj->listarMensajero()));
 		document.getElementById('idguia'). value = "";
 	}
 
-	function limpiarCampos(){
-		document.getElementById(id). value = null;
-
-	}
 </script>
 </html>
